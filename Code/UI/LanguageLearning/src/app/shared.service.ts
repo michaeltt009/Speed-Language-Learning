@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class SharedService {
   readonly APIUrl = "https://localhost:44355/api";
-  readonly AudioUrl = "https://localhost:44355/AudioFiles";
+  readonly AudioUrl = "https://localhost:44355/AudioFiles/";
 
   constructor(private http:HttpClient) { }
 

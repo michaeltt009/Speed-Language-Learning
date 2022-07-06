@@ -11,13 +11,13 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    public class EnglishPhrasesController : ApiController
+    public class EnglishPhrasesTimesController : ApiController
     {
         public HttpResponseMessage Get()
         {
             string query = @"
-                select PhraseId, Phrase, Translation, PhraseAudioFileName, TranslationAudioFileName 
-                from dbo.EnglishPhrases
+                select StudiedPhraseId, PhraseId, AmountStudied, LastStudiedTime, AverageStudiedTime 
+                from dbo.EnglishPhrasesTimes
                 ";
             DataTable table = new DataTable();
             using (var con = new SqlConnection(ConfigurationManager.
@@ -33,16 +33,16 @@ namespace WebApplication1.Controllers
         }
 
         
-        public string Post(EnglishPhrases phrase)
+        public string Post(EnglishPhrasesTimes phrase)
         {
             try
             {
                 string query = @"
-                    insert into dbo.EnglishPhrases values
-                    ('" + phrase.Phrase + @"'
-                    ,'" + phrase.Translation + @"'
-                    ,'" + phrase.PhraseAudioFileName + @"'
-                    ,'" + phrase.TranslationAudioFileName + @"'
+                    insert into dbo.EnglishPhrasesTimes values
+                    ('" + phrase.PhraseId + @"'
+                    ,'" + phrase.AmountStudied + @"'
+                    ,'" + phrase.LastStudiedTime + @"'
+                    ,'" + phrase.AverageStudiedTime + @"'
                     )";
 
                 DataTable table = new DataTable();
@@ -63,17 +63,17 @@ namespace WebApplication1.Controllers
             }
         }
 
-        public string Put(EnglishPhrases phrase)
+        public string Put(EnglishPhrasesTimes phrase)
         {
             try
             {
                 string query = @"
-                    update dbo.EnglishPhrases set 
-                    Phrase='" + phrase.Phrase + @"'
-                    ,Translation='" + phrase.Translation + @"'
-                    ,PhraseAudioFileName='" + phrase.PhraseAudioFileName + @"'
-                    ,TranslationAudioFileName='" + phrase.TranslationAudioFileName + @"'
-                    where PhraseId=" + phrase.PhraseId + @"
+                    update dbo.EnglishPhrasesTimes set 
+                    PhraseId='" + phrase.PhraseId + @"'
+                    ,AmountStudied='" + phrase.AmountStudied + @"'
+                    ,PhraseAudioFileName='" + phrase.LastStudiedTime + @"'
+                    ,TranslationAudioFileName='" + phrase.AverageStudiedTime + @"'
+                    where StudiedPhraseId=" + phrase.StudiedPhraseId + @"
                     ";
 
                 DataTable table = new DataTable();
@@ -99,8 +99,8 @@ namespace WebApplication1.Controllers
             try
             {
                 string query = @"
-                    delete from dbo.EnglishPhrases
-                    where PhraseId=" + id + @"
+                    delete from dbo.EnglishPhrasesTimes
+                    where StudiedPhraseId=" + id + @"
                     ";
 
                 DataTable table = new DataTable();

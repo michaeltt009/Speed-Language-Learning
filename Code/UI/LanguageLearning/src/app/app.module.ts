@@ -10,11 +10,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TrainComponent } from './train/train.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudyComponent
+    StudyComponent,
+    TrainComponent
   ],
   imports: [
     BrowserModule,

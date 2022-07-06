@@ -16,9 +16,7 @@ namespace WebApplication1.Controllers
         public HttpResponseMessage Get()
         {
             string query = @"
-                select PhraseId, Phrase, Translation0, Translation1, Translation2, 
-                Translation3, Translation4, Translation5, Translation6, Translation7, 
-                Translation8, Translation9, PhraseAudioFileName, TranslationAudioFileName 
+                select PhraseId, Phrase, Translation, PhraseAudioFileName, TranslationAudioFileName 
                 from dbo.ItalianPhrases
                 ";
             DataTable table = new DataTable();
@@ -42,16 +40,7 @@ namespace WebApplication1.Controllers
                 string query = @"
                     insert into dbo.ItalianPhrases values
                     ('" + phrase.Phrase + @"'
-                    ,'" + phrase.Translation0 + @"'
-                    ,'" + phrase.Translation1 + @"'
-                    ,'" + phrase.Translation2 + @"'
-                    ,'" + phrase.Translation3 + @"'
-                    ,'" + phrase.Translation4 + @"'
-                    ,'" + phrase.Translation5 + @"'
-                    ,'" + phrase.Translation6 + @"'
-                    ,'" + phrase.Translation7 + @"'
-                    ,'" + phrase.Translation8 + @"'
-                    ,'" + phrase.Translation9 + @"'
+                    ,'" + phrase.Translation + @"'
                     ,'" + phrase.PhraseAudioFileName + @"'
                     ,'" + phrase.TranslationAudioFileName + @"'
                     )";
@@ -81,16 +70,7 @@ namespace WebApplication1.Controllers
                 string query = @"
                     update dbo.ItalianPhrases set 
                     Phrase='" + phrase.Phrase + @"'
-                    ,Translation0='" + phrase.Translation0 + @"'
-                    ,Translation1='" + phrase.Translation1 + @"'
-                    ,Translation2='" + phrase.Translation2 + @"'
-                    ,Translation3='" + phrase.Translation3 + @"'
-                    ,Translation4='" + phrase.Translation4 + @"'
-                    ,Translation5='" + phrase.Translation5 + @"'
-                    ,Translation6='" + phrase.Translation6 + @"'
-                    ,Translation7='" + phrase.Translation7 + @"'
-                    ,Translation8='" + phrase.Translation8 + @"'
-                    ,Translation9='" + phrase.Translation9 + @"'
+                    ,Translation0='" + phrase.Translation + @"'
                     ,PhraseAudioFileName='" + phrase.PhraseAudioFileName + @"'
                     ,TranslationAudioFileName='" + phrase.TranslationAudioFileName + @"'
                     where PhraseId=" + phrase.PhraseId + @"
