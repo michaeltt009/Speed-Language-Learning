@@ -42,4 +42,20 @@ export class SharedService {
   deleteItlPhrase(val:any){
     return this.http.delete(this.APIUrl+'/ItalianPhrases/'+val);
   }
+
+  getEngPhrasesTimesList():Observable<any[]>{
+    return this.http.get<any>(this.APIUrl+'/EnglishPhrasesTimes');
+  }
+
+  addEngPhraseTimes(val:any){
+    return this.http.post(this.APIUrl+'/EnglishPhrasesTimes',val);
+  }
+
+  updateEngPhraseTimes(val:any){
+    return this.http.put(this.APIUrl+'/EnglishPhrasesTimes',val);
+  }
+
+  deleteEngPhraseTimes(val:any){
+    return this.http.delete(this.APIUrl+'/EnglishPhrasesTimes/'+val);
+  }
 }

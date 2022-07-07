@@ -71,8 +71,8 @@ namespace WebApplication1.Controllers
                     update dbo.EnglishPhrasesTimes set 
                     PhraseId='" + phrase.PhraseId + @"'
                     ,AmountStudied='" + phrase.AmountStudied + @"'
-                    ,PhraseAudioFileName='" + phrase.LastStudiedTime + @"'
-                    ,TranslationAudioFileName='" + phrase.AverageStudiedTime + @"'
+                    ,LastStudiedTime='" + phrase.LastStudiedTime + @"'
+                    ,AverageStudiedTime='" + phrase.AverageStudiedTime + @"'
                     where StudiedPhraseId=" + phrase.StudiedPhraseId + @"
                     ";
 

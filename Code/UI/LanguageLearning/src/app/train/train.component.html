@@ -1,1 +1,37 @@
-<p>train works!</p>
+<div class="container flex flex-wrap justify-between items-center mx-auto">
+    <div class="bg-zinc-300 h-16 w-full flex flex-wrap content-center justify-center">
+        <p class="text-2xl sm:text-4xl font-bold">Translate Question</p>
+    </div>
+    <div class="bg-zinc-100 h-16 w-full flex flex-wrap content-center justify-center">
+        <p class="text-2xl sm:text-4xl text-center italic">Translate the following phrase</p>
+    </div>
+    <div class="bg-zinc-600 h-8 w-full flex flex-wrap content-center justify-center">
+        <p class="text-white text-lg">English</p>
+    </div>
+    <div class="bg-zinc-400 h-36 sm:h-48 w-full  flex flex-wrap content-center justify-center">
+        <p class="text-white text-4xl sm:text-6xl text-center font-bold">{{Phrase}}</p>
+    </div>
+    <div class="bg-zinc-400 h-16 w-full flex flex-wrap content-center justify-center">
+        <button class="h-full w-full bg-blue-500 hover:bg-blue-700 text-white text-2xl font-bold rounded-xl mx-2 mb-4 flex flex-wrap content-center justify-center" (click)="playPhraseAudio()">
+            <svg class="h-8 w-8 text-white"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />  <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" /></svg>
+        </button>
+    </div>
+    <div class="bg-yellow-300 h-8 w-full flex flex-wrap content-center justify-center" *ngIf="Checked == true">
+        <p class="text-black text-lg">Italian</p>
+    </div>
+    <div class="bg-yellow-100 h-36 sm:h-48 w-full flex flex-wrap content-center justify-center" *ngIf="Checked == true">
+        <p class="text-black text-4xl sm:text-6xl text-center font-bold">{{Translation}}</p>
+    </div>
+    <div class="bg-yellow-100 h-16 w-full  flex flex-wrap content-center justify-center" *ngIf="Checked == true">
+        <button class="h-full w-full bg-blue-500 hover:bg-blue-700 text-white text-2xl font-bold rounded-xl mx-2 mb-4 flex flex-wrap content-center justify-center" (click)="playTranslationAudio()">
+            <svg class="h-8 w-8 text-white"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />  <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" /></svg>
+        </button>    
+    </div>
+    <div class="h-16 w-full flex flex-wrap content-end justify-end mt-4" (click)="checked()" *ngIf="Checked == false">
+        <button class="h-full w-full bg-yellow-400 hover:bg-yellow-500 text-2xl font-bold rounded-xl">Check</button>
+    </div>
+    <div class="h-16 w-full flex flex-wrap content-end justify-between mt-4" *ngIf="Checked == true">
+        <button class="h-full w-half bg-zinc-300 hover:bg-zinc-400 text-2xl font-bold rounded-xl" (click)="didNotGet()">I did not get it</button>
+        <button class="h-full w-half bg-yellow-400 hover:bg-yellow-500 text-2xl font-bold rounded-xl" (click)="gotIt()">I got it</button>
+    </div>
+</div>
